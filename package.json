@@ -1,0 +1,11 @@
+{
+  "name": "neoplayers-backend",
+  "version": "1.0.0",
+  "description": "Proxy backend for NeoPlayers",
+  "private": true,
+  "main": "api/health.js",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {}
+}
