@@ -12,8 +12,12 @@ module.exports = async (req, res) => {
         ]);
 
         res.status(200).json({
-            ok: true,
-            categories: { live, movies, series }
+            "ok": true,
+            "categories": {
+                "live": live,
+                "movies": movies,
+                "series": series
+            }
         });
     } catch (error) {
         res.status(500).json({ ok: false, error: error.message });

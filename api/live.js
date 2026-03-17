@@ -6,8 +6,13 @@ module.exports = async (req, res) => {
     try {
         const base = buildApiBase();
         const category_id = req.query.category_id;
+
+        if (!category_id) {
+            return res.status(400).json({ ok: false, error: "category_id is required" });
+        }
+
         const action = "get_live_streams";
-        const url = category_id ? `${base}&action=${action}&category_id=${encodeURIComponent(category_id)}` : `${base}&action=${action}`;
+        const url = `${base}&action=${action}&category_id=${encodeURIComponent(category_id)}`;
 
         const data = await fetchJson(url);
         res.status(200).json({ ok: true, items: data });
